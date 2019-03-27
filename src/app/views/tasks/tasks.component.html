@@ -1,0 +1,22 @@
+<form [formGroup]="form" (ngSubmit)="save()" class="p-4 border rounded">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" id="title" placeholder="Title" [(ngModel)]="task.title" formControlName="title" />
+    <div *ngIf="form.controls['title'].errors?.required" class="my-2 p-2 alert-danger"><small>*Required</small></div>
+    <div *ngIf="form.controls['title'].errors?.pattern" class="my-2 p-2 alert-danger"><small>*Only letters and space</small></div>
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea class="form-control" id="description" [(ngModel)]="task.description" formControlName="description"></textarea>
+    <div *ngIf="form.controls['description'].errors?.required" class="my-2 p-2 alert-danger"><small>*Required</small></div>
+    <div *ngIf="form.controls['description'].errors?.pattern" class="my-2 p-2 alert-danger"><small>Only letters, space and numbers</small></div>
+  </div>
+  <div class="form-group">
+    <label for="type">Type</label>
+    <select class="form-control" id="type" [(ngModel)]="task.type" formControlName="type">
+      <option *ngFor="let type of types" value="{{ type }}">{{ type }}</option>
+    </select>
+    <div *ngIf="form.controls['type'].errors?.required" class="my-2 p-2 alert-danger"><small>*Required</small></div>
+  </div>
+  <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Add</button>
+</form>

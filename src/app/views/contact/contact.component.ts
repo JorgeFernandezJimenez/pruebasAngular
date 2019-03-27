@@ -2,11 +2,11 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-contact',
-  templateUrl: './contact.component.html'
+  templateUrl: './contact.component.html',
+  styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
 
-  @Output() public contact = new EventEmitter<any>();
   public show: boolean;
 
   constructor() {
@@ -17,7 +17,7 @@ export class ContactComponent implements OnInit {
   }
 
   public showContact() {
-    this.show = true;
+    this.show = !this.show;
   }
 
 }

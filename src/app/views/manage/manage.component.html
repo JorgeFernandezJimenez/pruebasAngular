@@ -1,0 +1,8 @@
+<app-tasks (add)="save($event)"></app-tasks>
+<hr>
+<app-list *ngIf="tasks.length > 0; else info" [tasks]="tasks"></app-list>
+<ng-template #info>
+  <div class="alert alert-info">
+    There is no tasks yet
+  </div>
+</ng-template>

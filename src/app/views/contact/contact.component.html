@@ -1,3 +1,7 @@
+<button (click)="showContact()">
+  <span *ngIf="!show; else hide">Show</span>
+  <ng-template #hide>Hide</ng-template>
+</button>
 <div [class.hidden]="!show">
   Olaf, ¿ke Ashe?
 </div>
