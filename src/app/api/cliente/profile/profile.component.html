@@ -1,3 +1,21 @@
-<p>
-  profile works!
-</p>
+<div class="card">
+    <div class="card-header">
+      {{ cliente.first_name }} {{ cliente.last_name}}
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+          <form (ngSubmit)="update()" class="row p-0">
+              <div class="form-group col-5 text-left p-0">
+                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First name" [(ngModel)]="cliente.first_name" />
+              </div>
+              <div class="form-group col-6">
+                <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last name" [(ngModel)]="cliente.last_name" />
+              </div>
+              <div class="text-right col-1 p-0">
+                <button type="submit" class="btn btn-success font-weight-bold">Update</button>
+              </div>
+            </form>
+      </blockquote>
+      <button class="btn btn-warning" (click)="back()">Volver</button>
+    </div>
+  </div>

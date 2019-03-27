@@ -8,7 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LayoutsModule } from './layouts/layouts.module';
 import { ApiModule } from './api/api.module';
 import { HttpClientModule } from '@angular/common/http';
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { DataService } from './data.service';
 
 @NgModule({
@@ -21,10 +21,10 @@ import { DataService } from './data.service';
     ViewsModule,
     NgbModule,
     LayoutsModule,
-    ApiModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(DataService)
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

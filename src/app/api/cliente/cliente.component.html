@@ -12,9 +12,9 @@
     <tbody>
       <tr *ngFor="let cliente of clientes">
         <th scope="row">
-          <a class="btn-primary py-1 px-2 rounded text-light button-a">{{
-            cliente.id
-          }}</a>
+          <a class="btn-primary py-1 px-2 rounded text-light button-a" routerLink={{cliente.id}}>
+            {{ cliente.id }}
+          </a>
         </th>
         <td>{{ cliente.first_name }}</td>
         <td>{{ cliente.last_name }}</td>

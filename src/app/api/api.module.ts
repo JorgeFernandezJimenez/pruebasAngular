@@ -5,17 +5,15 @@ import { ClienteService } from './cliente/cliente.service';
 import { AddComponent } from './cliente/add/add.component';
 import { ProfileComponent } from './cliente/profile/profile.component';
 import { FormsModule } from '@angular/forms';
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { DataService } from '../data.service';
+import { ApiRoutingModule } from './api-routing.module';
 
 @NgModule({
   declarations: [ClienteComponent, AddComponent, ProfileComponent],
   imports: [
     CommonModule,
     FormsModule,
-    InMemoryWebApiModule.forRoot(DataService)
+    ApiRoutingModule
   ],
-  exports: [ClienteComponent],
   providers: [ClienteService]
 })
 export class ApiModule { }

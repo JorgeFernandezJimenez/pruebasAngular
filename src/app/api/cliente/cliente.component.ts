@@ -28,19 +28,20 @@ export class ClienteComponent implements OnInit {
   public refresh() {
     this.clientes = new Array();
     this._clienteService.getClientList$().subscribe(
-      (data) => {
-        for(let cliente of data.data) {
-          this.clientes.push(cliente);
-        }
-    });
+      response => {
+        this.clientes = response;
+      },
+      error => {
+      
+      }
+      );
   }
 
   public delete(cliente: Cliente) {
     this._clienteService.deleteClient$(cliente)
     .subscribe(
       response => {
-        let index = this.clientes.indexOf(cliente);
-        this.clientes.splice(index, 1);
+        this.refresh();
       },
       error => {
 
@@ -51,7 +52,7 @@ export class ClienteComponent implements OnInit {
   public save(cliente: Cliente) {
     this._clienteService.saveClient$(cliente).subscribe(
       response => {
-        this.clientes.push(cliente)
+        this.refresh();
       },
       error => {
 

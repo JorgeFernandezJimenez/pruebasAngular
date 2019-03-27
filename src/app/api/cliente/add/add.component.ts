@@ -12,7 +12,7 @@ export class AddComponent implements OnInit {
   @Output() public add = new EventEmitter<Cliente>();
 
   constructor() {
-    this.cliente = new Cliente(null, '', '', null);
+    this.cliente = new Cliente(null, '', '');
   }
 
   ngOnInit() {
@@ -20,7 +20,7 @@ export class AddComponent implements OnInit {
 
   public save() {
     this.add.emit(this.cliente);
-    this.cliente = new Cliente(null, '', '', null);
+    this.cliente = new Cliente(null, '', '');
   }
 
 }
